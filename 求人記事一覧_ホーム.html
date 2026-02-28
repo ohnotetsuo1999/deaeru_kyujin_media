@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>出会える求人メディア | ホーム</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #202939;
+      --muted: #617088;
+      --line: #e6ecf3;
+      --primary: #17a34a;
+      --primary-strong: #0e7a35;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      background: radial-gradient(circle at top right, #e9f9ef 0%, var(--bg) 42%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 28px 16px 72px;
+    }
+
+    .header {
+      margin-bottom: 18px;
+    }
+
+    .header h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .header p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 12px 34px rgba(19, 36, 61, 0.08);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 8px;
+      font-size: 12px;
+      border-radius: 999px;
+      color: #136434;
+      background: #ecfbf1;
+      border: 1px solid #bce8cc;
+    }
+
+    .title {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    .meta {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .desc {
+      margin: 8px 0 14px;
+      font-size: 14px;
+    }
+
+    .link {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      background: var(--primary);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .link:hover {
+      background: var(--primary-strong);
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>出会える求人メディア</h1>
+      <p>気になる求人記事を選んで、詳細を読んでから応募できます。</p>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <span class="tag">営業職</span>
+        <h2 class="title">SaaSフィールドセールス（法人向け）</h2>
+        <p class="meta">年収 550万〜800万 / 東京（リモート週2）</p>
+        <p class="desc">事業拡大フェーズで提案営業と改善推進を担うポジションです。</p>
+        <a class="link" href="応募ページ_デザインモック.html">記事を見る</a>
+      </article>
+
+      <article class="card">
+        <span class="tag">マーケ職</span>
+        <h2 class="title">BtoBマーケティング担当（リード獲得）</h2>
+        <p class="meta">年収 500万〜760万 / 東京</p>
+        <p class="desc">広告運用とコンテンツ施策を横断し、商談創出を最大化する役割です。</p>
+        <a class="link" href="応募ページ_デザインモック.html">記事を見る</a>
+      </article>
+
+      <article class="card">
+        <span class="tag">カスタマーサクセス</span>
+        <h2 class="title">CSマネージャー（SaaS導入支援）</h2>
+        <p class="meta">年収 620万〜900万 / 東京・大阪</p>
+        <p class="desc">導入後の活用支援とアップセル戦略を設計し、継続率向上を担います。</p>
+        <a class="link" href="応募ページ_デザインモック.html">記事を見る</a>
+      </article>
+
+      <article class="card">
+        <span class="tag">企画職</span>
+        <h2 class="title">事業開発（新規サービス立ち上げ）</h2>
+        <p class="meta">年収 700万〜1,000万 / 東京</p>
+        <p class="desc">市場調査から検証設計までを担う、0→1フェーズの中核ポジションです。</p>
+        <a class="link" href="応募ページ_デザインモック.html">記事を見る</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

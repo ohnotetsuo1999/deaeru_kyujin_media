@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>出会える求人メディア | 株式会社貴瞬 採用記事モック</title>
+  <style>
+    :root {
+      --bg: #f7f9f8;
+      --surface: #ffffff;
+      --line: #d9e1dc;
+      --text: #1f2e26;
+      --muted: #5f7267;
+      --brand: #238a4e;
+      --brand-strong: #1c7441;
+      --chip: #edf7f0;
+      --chip-text: #23683f;
+      --shadow: 0 4px 12px rgba(24, 53, 37, 0.04);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 800;
+      color: #203328;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .ghost-button,
+    .solid-button {
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      transition: all 0.2s ease;
+    }
+
+    .ghost-button {
+      background: #fff;
+      color: #3f4f64;
+    }
+
+    .solid-button {
+      border-color: var(--brand);
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(35, 138, 78, 0.2);
+    }
+
+    .solid-button:hover { background: var(--brand-strong); }
+    .ghost-button:hover { background: #f3f7fa; }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 20px 72px;
+    }
+
+    .breadcrumb {
+      margin: 0 0 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 760px) 320px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-cover {
+      height: 320px;
+      border-radius: 14px;
+      border: 1px solid #d8e2dc;
+      background: #eaf2ed;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .hero-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16, 28, 43, 0.05) 18%, rgba(16, 28, 43, 0.4) 100%);
+      pointer-events: none;
+    }
+
+    .hero-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-cover span {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--chip-text);
+      background: var(--chip);
+      border: 1px solid #cde2d2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--chip-text);
+      border: 1px solid #cde2d2;
+      background: var(--chip);
+      border-radius: 999px;
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+
+    .job-title {
+      margin: 0 0 8px;
+      font-size: 34px;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+    }
+
+    .meta {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero-cta {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-cta-main,
+    .hero-cta-sub {
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .hero-cta-main {
+      background: var(--brand);
+      color: #fff;
+      border: 1px solid var(--brand);
+      box-shadow: 0 6px 16px rgba(35, 138, 78, 0.24);
+    }
+
+    .hero-cta-main:hover {
+      background: var(--brand-strong);
+      border-color: var(--brand-strong);
+    }
+
+    .hero-cta-sub {
+      background: #fff;
+      color: #2f5f45;
+      border: 1px solid var(--line);
+    }
+
+    .hero-cta-sub:hover { background: #f6fbff; }
+
+    .info-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-grid li {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #f9fcfa;
+      font-size: 13px;
+    }
+
+    .info-grid strong {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+
+    .section-text {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .section-text + .section-text { margin-top: 8px; }
+
+    .quote-box {
+      margin-top: 14px;
+      padding: 14px;
+      border-left: 4px solid var(--brand);
+      background: #f3f9f5;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #355645;
+    }
+
+    .story-list {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .story-list li + li { margin-top: 6px; }
+
+    .stats-grid {
+      margin: 12px 0 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .stat-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #f8fcf9;
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 22px;
+      line-height: 1.3;
+      color: #1b6f3d;
+      margin-bottom: 4px;
+    }
+
+    .stat-item span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .job-cards {
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .job-role {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #fcfffd;
+    }
+
+    .job-role h3 {
+      margin: 0 0 5px;
+      font-size: 15px;
+      color: #1a6638;
+    }
+
+    .job-role p {
+      margin: 0;
+      font-size: 13px;
+      color: #395748;
+    }
+
+    .timeline {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      font-size: 14px;
+    }
+
+    .timeline li + li { margin-top: 8px; }
+
+    .faq-list {
+      margin: 10px 0 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      background: #ffffff;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      color: #173124;
+    }
+
+    .faq-item p {
+      margin: 0;
+      font-size: 13px;
+      color: #4a6154;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 76px;
+    }
+
+    .apply-button {
+      display: block;
+      width: 100%;
+      border: 0;
+      border-radius: 12px;
+      background: var(--brand);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+      padding: 13px 12px;
+      transition: all 0.2s ease;
+    }
+
+    .apply-button:hover { background: var(--brand-strong); }
+
+    .side-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tip-list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      font-size: 13px;
+    }
+
+    .tip-list li + li { margin-top: 5px; }
+
+    .agent-box {
+      border: 1px solid #b7e2c3;
+      background: #f3faf5;
+    }
+
+    .agent-box h3 {
+      margin: 0 0 4px;
+      font-size: 17px;
+      color: #1a6638;
+    }
+
+    .agent-box p {
+      margin: 0;
+      font-size: 13px;
+      color: #3f6650;
+    }
+
+    .agent-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #1a6638;
+      text-decoration: none;
+      border: 1px solid #8fce9f;
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 7px 13px;
+    }
+
+    .agent-points {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      font-size: 13px;
+      color: #356148;
+    }
+
+    .agent-points li + li { margin-top: 4px; }
+
+    .pr-label {
+      display: inline-block;
+      margin: 0 0 8px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #1f7d44;
+      background: #e2f6e9;
+      border: 1px solid #b7e2c3;
+    }
+
+    .content-figure {
+      margin: 14px 0 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #d8e2dc;
+      background: #eef4f0;
+    }
+
+    .content-figure img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .figure-caption {
+      margin: 0;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: #4f6558;
+      background: #f8fbf9;
+    }
+
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .sticky { position: static; }
+      .hero-cover { height: 240px; }
+      .job-title { font-size: 28px; }
+      .content-figure img { height: 210px; }
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="求人記事一覧_ホーム.html">DEAERU JOURNAL</a>
+      <div class="header-actions">
+        <a class="ghost-button" href="#">保存</a>
+        <a class="solid-button" href="#apply">話を聞きに行きたい</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <p class="breadcrumb">ホーム / 募集 / 株式会社貴瞬</p>
+
+    <div class="layout">
+      <section>
+        <article class="card">
+          <div class="hero-cover">
+            <img
+              src="https://recruit.kishun.co.jp/asset/img/top/mv.webp"
+              alt="宝石ルーペで鑑定する様子"
+              loading="eager"
+            />
+            <span>Story Driven Recruiting</span>
+          </div>
+          <span class="eyebrow">総合職（営業・鑑定連携）</span>
+          <h1 class="job-title">宝石の価値を世界へつなぐ<br />株式会社貴瞬の成長を担うメンバー募集</h1>
+          <p class="meta">株式会社貴瞬 ・ 更新日 2026.02.28 ・ いいね 236</p>
+          <div class="hero-cta">
+            <a class="hero-cta-main" href="#apply">カジュアル面談に応募する</a>
+            <a
+              class="hero-cta-sub"
+              href="https://deaeru-agent.jp/?utm_source=wantedly_style_mock&utm_medium=job_page&utm_campaign=firstview_consult"
+              target="_blank"
+              rel="noopener noreferrer"
+            >応募前にエージェントへ相談</a>
+          </div>
+          <ul class="info-grid">
+            <li><strong>想定年収</strong>450万円〜750万円</li>
+            <li><strong>勤務地</strong>東京本社（国内外出張あり）</li>
+            <li><strong>雇用形態</strong>正社員</li>
+            <li><strong>選考フロー</strong>カジュアル面談→面接2〜3回</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">なにをやっているのか</h2>
+          <p class="section-text">株式会社貴瞬は、宝石の買取から鑑定、研磨・リカット、ジュエリー化、販売までを自社で一貫して行うリフレーミングカンパニーです。</p>
+          <p class="section-text">国内外の流通ネットワークと専門人材を活かし、色石の価値を見極めて再定義し、次の顧客へ届ける独自モデルを展開しています。</p>
+          <figure class="content-figure">
+            <img
+              src="https://recruit.kishun.co.jp/asset/img/business/business01_slide.webp"
+              alt="宝石の選別と鑑定を行う現場"
+              loading="lazy"
+            />
+            <figcaption class="figure-caption">適正価格での買取と高精度の鑑定を起点に、価値再生のサイクルを回しています。</figcaption>
+          </figure>
+        </article>
+
+        <article class="card agent-box">
+          <span class="pr-label">PR | 出会えるエージェント</span>
+          <h3>応募前に1分診断。相性の良いエージェントを厳選紹介</h3>
+          <p>出会えるエージェントは、求職者に合う担当を最短1分でマッチング。比較検討の手間を減らせます。</p>
+          <ul class="agent-points">
+            <li>満足度の高いエージェント中心にご紹介</li>
+            <li>利用料は完全無料、まずは情報収集だけでもOK</li>
+          </ul>
+          <a
+            href="https://deaeru-agent.jp/?utm_source=wantedly_style_mock&utm_medium=job_page&utm_campaign=between_sections_1"
+            class="agent-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >1分診断をはじめる</a>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">なぜやるのか</h2>
+          <p class="section-text">同社は「無価値という言葉を世界からなくす」という思想のもと、埋もれた宝石や素材に新しい価値を与えることを使命に掲げています。</p>
+          <div class="quote-box">「180度変わるような体験を。」というブランドメッセージを、事業と採用の両面で体現しています。</div>
+          <figure class="content-figure">
+            <img
+              src="https://recruit.kishun.co.jp/asset/img/top/statement_img03.webp"
+              alt="宝石が並ぶショーケース"
+              loading="lazy"
+            />
+            <figcaption class="figure-caption">色あせない価値を見つけ、届ける。社会的意義のある事業に本気で向き合っています。</figcaption>
+          </figure>
+        </article>
+
+        <article class="card agent-box">
+          <span class="pr-label">PR | 出会えるエージェント</span>
+          <h3>求人票にない内情まで、応募前に把握できます</h3>
+          <p>社風・働き方・評価制度など、公開情報だけでは見えない判断材料を事前に整理できます。</p>
+          <ul class="agent-points">
+            <li>業界特化〜大手まで約1,000名規模から提案</li>
+            <li>書類添削・面談対策・条件整理まで一気通貫で支援</li>
+          </ul>
+          <a
+            href="https://deaeru-agent.jp/?utm_source=wantedly_style_mock&utm_medium=job_page&utm_campaign=between_sections_2"
+            class="agent-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >無料でキャリア相談する</a>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">どうやっているのか</h2>
+          <ul class="story-list">
+            <li>仕入れ・鑑定・加工・販売の各チームが連携し、案件単位で価値最大化を設計</li>
+            <li>海外拠点を含む流通網から情報を集め、相場・品質・需要を総合的に判断</li>
+            <li>高難度案件はスペシャリストと連携し、品質基準とスピードを両立</li>
+          </ul>
+          <figure class="content-figure">
+            <img
+              src="https://recruit.kishun.co.jp/asset/img/job/sales_thumb.webp"
+              alt="ジュエリー制作工程の様子"
+              loading="lazy"
+            />
+            <figcaption class="figure-caption">一連の工程を自社で完結することで、スピードと品質の両立を実現しています。</figcaption>
+          </figure>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">数字で紐解く貴瞬</h2>
+          <p class="section-text">急成長フェーズにある同社は、事業拡大に伴って採用・育成にも積極投資しています。挑戦機会が多く、裁量を持って動ける環境です。</p>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <strong>2025</strong>
+              <span>採用サイト公開・成長加速フェーズへ</span>
+            </div>
+            <div class="stat-item">
+              <strong>4工程</strong>
+              <span>買取→鑑定→加工→販売を一貫運営</span>
+            </div>
+            <div class="stat-item">
+              <strong>グローバル</strong>
+              <span>国内外の流通ネットワークを拡大中</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card agent-box">
+          <span class="pr-label">PR | 出会えるエージェント</span>
+          <h3>「急成長環境が合うか」を応募前に整理できます</h3>
+          <p>挑戦機会が多い会社ほど、期待値調整が重要です。担当エージェントが経験・志向との相性を一緒に確認します。</p>
+          <ul class="agent-points">
+            <li>価値観のすり合わせを面談前に実施</li>
+            <li>企業研究の観点を10分で整理</li>
+          </ul>
+          <a
+            href="https://deaeru-agent.jp/?utm_source=wantedly_style_mock&utm_medium=job_page&utm_campaign=kishun_growth_check"
+            class="agent-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >面談前チェックをする</a>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">職種とキャリアの広がり</h2>
+          <p class="section-text">貴瞬では、バリューチェーン全体を学びながら専門性を深めるキャリアを描けます。職種間の連携が深く、学習スピードが速いのが特長です。</p>
+          <div class="job-cards">
+            <article class="job-role">
+              <h3>買取営業</h3>
+              <p>中古宝石の査定・仕入れを担い、案件の入口をつくるポジション。市場感覚と対人折衝力が磨かれます。</p>
+            </article>
+            <article class="job-role">
+              <h3>鑑定・品質管理</h3>
+              <p>石の品質や価値を見極め、加工方針を決定。専門知識を武器に事業収益へ直結する役割です。</p>
+            </article>
+            <article class="job-role">
+              <h3>販売・海外流通</h3>
+              <p>国内外の販路を開拓し、最適な販売戦略を設計。グローバルに価値を届けるダイナミックな仕事です。</p>
+            </article>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">入社後90日の成長イメージ</h2>
+          <ul class="timeline">
+            <li><strong>1〜30日:</strong> 業界知識・商品知識のインプット、先輩同行で商流を理解</li>
+            <li><strong>31〜60日:</strong> 小規模案件を担当し、鑑定・加工チームとの連携を実践</li>
+            <li><strong>61〜90日:</strong> 担当領域を持ち、収益インパクトのある案件に挑戦</li>
+          </ul>
+        </article>
+
+        <article class="card agent-box">
+          <span class="pr-label">PR | 出会えるエージェント</span>
+          <h3>LINEで完結。スピーディーに次の一歩へ</h3>
+          <p>診断後の連絡・日程調整・相談はLINE中心。忙しい中でもタイパ良く転職活動を進められます。</p>
+          <ul class="agent-points">
+            <li>「今すぐ転職しない」段階でも利用可能</li>
+            <li>合わない担当は変更でき、相性重視で進められる</li>
+          </ul>
+          <a
+            href="https://deaeru-agent.jp/?utm_source=wantedly_style_mock&utm_medium=job_page&utm_campaign=pre_apply_consult"
+            class="agent-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >LINEで相談を開始する</a>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">制度・環境とよくある質問</h2>
+          <p class="section-text">挑戦を後押しする教育研修・評価制度を重視しており、変化の中で成長したい人にフィットする環境です。</p>
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>Q. 未経験領域があっても応募できますか？</h3>
+              <p>A. 可能です。選考では経験値だけでなく、学習意欲と変化適応力を重視します。</p>
+            </article>
+            <article class="faq-item">
+              <h3>Q. どんな人が活躍しやすいですか？</h3>
+              <p>A. スピード感のある環境で、まずやってみる姿勢を持てる人が伸びやすいです。</p>
+            </article>
+            <article class="faq-item">
+              <h3>Q. 事業理解を深めてから選考に進めますか？</h3>
+              <p>A. カジュアル面談で事業・職種・期待役割を丁寧にすり合わせたうえで進めます。</p>
+            </article>
+          </div>
+        </article>
+      </section>
+
+      <aside class="sticky">
+        <article class="card" id="apply">
+          <h2 class="section-title">まずは話を聞いてみる（貴瞬）</h2>
+          <a class="apply-button" href="#">カジュアル面談に応募する</a>
+          <p class="side-note">応募時点では履歴書不要。事業理解を深める30分の面談から始められます。</p>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">応募のコツ（貴瞬）</h2>
+          <ul class="tip-list">
+            <li>「価値再生」に共感した理由を具体的に言語化する</li>
+            <li>数値成果だけでなく、品質判断や改善経験も伝える</li>
+            <li>グローバル視点で挑戦したいテーマを整理しておく</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2 class="section-title">この求人の見どころ</h2>
+          <ul class="tip-list">
+            <li>一貫ビジネスモデルで事業全体を学べる</li>
+            <li>急成長フェーズで早期に裁量を持てる</li>
+            <li>専門性とビジネス感覚を同時に伸ばせる</li>
+          </ul>
+        </article>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
